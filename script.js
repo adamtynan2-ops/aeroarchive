@@ -16,13 +16,20 @@ for (var i = 0; i < buttons.length; i++) {
 // ---- IMAGE SLIDER ----
 var currentSlide = 0;
 var slides = document.querySelectorAll('.slide');
+var dots = document.querySelectorAll('.dot');
 
 function showSlide(index) {
   for (var i = 0; i < slides.length; i++) {
     slides[i].classList.remove('active');
   }
+  for (var i = 0; i < dots.length; i++) {
+    dots[i].classList.remove('active');
+  }
   if (slides.length > 0) {
     slides[index].classList.add('active');
+  }
+  if (dots.length > 0) {
+    dots[index].classList.add('active');
   }
 }
 
@@ -32,8 +39,12 @@ function nextSlide() {
 }
 
 function prevSlide() {
-  currentSlide = (currentSlide - 1 + slides.length)
-    % slides.length;
+  currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+  showSlide(currentSlide);
+}
+
+function goToSlide(index) {
+  currentSlide = index;
   showSlide(currentSlide);
 }
 
@@ -92,8 +103,6 @@ function validateForm(event) {
 }
 
 // ---- WEATHER API ----
-// Using OpenWeatherMap (free). Sign up at
-// openweathermap.org to get your API key.
 var apiKey = 'YOUR_API_KEY';
 var airports = [
   { name: 'London Heathrow', lat: 51.47, lon: -0.46 },
