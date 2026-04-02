@@ -104,33 +104,63 @@ nav {
 /* ---- IMAGE SLIDER ---- */
 .slider {
   position: relative;
-  text-align: center;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
 }
 
 .slide {
   display: none;
   width: 100%;
-  max-height: 400px;
+  height: 400px;
   object-fit: cover;
 }
 
-.slide.active { display: block; }
+.slide.active {
+  display: block;
+}
 
 .prev-btn, .next-btn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   color: white;
   border: none;
-  padding: 10px 15px;
+  padding: 15px 20px;
   font-size: 1.5rem;
   cursor: pointer;
+  z-index: 10;
+  border-radius: 4px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background: rgba(0,0,0,0.9);
 }
 
 .prev-btn { left: 10px; }
 .next-btn { right: 10px; }
 
+.slide-dots {
+  text-align: center;
+  padding: 15px;
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  margin: 0 5px;
+  background: #ccc;
+  border-radius: 50%;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: #1B4F72;
+}
 /* ---- FORM ---- */
 form { display: flex; flex-direction: column; gap: 10px; }
 
