@@ -1,0 +1,201 @@
+/* ---- GLOBAL STYLES ---- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+/* ---- NAVIGATION ---- */
+nav {
+  background-color: #0D1B2A;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover { color: #E07C24; }
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8rem;
+  cursor: pointer;
+}
+
+/* ---- HERO SECTION ---- */
+.hero {
+  background-color: #1B4F72;
+  color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+.hero p { font-size: 1.2rem; }
+
+/* ---- CONTENT SECTIONS ---- */
+.content {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+  background: white;
+  border-radius: 8px;
+}
+
+.content h2 { margin-bottom: 15px; color: #0D1B2A; }
+
+/* ---- ACCORDION ---- */
+.accordion-btn {
+  width: 100%;
+  padding: 15px;
+  background: #1B4F72;
+  color: white;
+  border: none;
+  text-align: left;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.accordion-btn:hover { background: #0D3B66; }
+
+.accordion-content {
+  display: none;
+  padding: 15px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+}
+
+.accordion-content.active { display: block; }
+
+.accordion-content img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* ---- IMAGE SLIDER ---- */
+.slider {
+  position: relative;
+  text-align: center;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.slide.active { display: block; }
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+
+/* ---- FORM ---- */
+form { display: flex; flex-direction: column; gap: 10px; }
+
+input, select, textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+button[type="submit"] {
+  padding: 12px;
+  background: #E07C24;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover { background: #c96a1a; }
+
+.error { color: red; font-size: 0.9rem; }
+
+#successMessage {
+  color: green;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.radio-group, .checkbox-group {
+  display: flex; gap: 15px; flex-wrap: wrap;
+}
+
+/* ---- VIDEO ---- */
+.video-container { text-align: center; }
+iframe { max-width: 100%; }
+
+/* ---- FOOTER ---- */
+footer {
+  background: #0D1B2A;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* ---- API DATA ---- */
+#api-data {
+  display: flex; flex-wrap: wrap; gap: 15px;
+}
+
+.weather-card {
+  background: #e8f0fe;
+  padding: 15px;
+  border-radius: 8px;
+  flex: 1; min-width: 200px;
+}
+
+/* ---- RESPONSIVE DESIGN ---- */
+@media (max-width: 768px) {
+  .nav-links { display: none; flex-direction: column;
+    position: absolute; top: 60px; left: 0;
+    width: 100%; background: #0D1B2A; }
+  .nav-links.active { display: flex; }
+  .hamburger { display: block; }
+  .hero h1 { font-size: 1.8rem; }
+}
