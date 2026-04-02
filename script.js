@@ -62,8 +62,7 @@ function validateForm(event) {
   // Check name
   var name = document.getElementById('name');
   if (name && name.value.trim() === '') {
-    document.getElementById('nameError')
-      .textContent = 'Name is required';
+    document.getElementById('nameError').textContent = 'Name is required';
     isValid = false;
   }
 
@@ -72,8 +71,7 @@ function validateForm(event) {
   if (email) {
     var pattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!pattern.test(email.value)) {
-      document.getElementById('emailError')
-        .textContent = 'Enter a valid email';
+      document.getElementById('emailError').textContent = 'Enter a valid email';
       isValid = false;
     }
   }
@@ -81,29 +79,26 @@ function validateForm(event) {
   // Check subject
   var subject = document.getElementById('subject');
   if (subject && subject.value === '') {
-    document.getElementById('subjectError')
-      .textContent = 'Pick a subject';
+    document.getElementById('subjectError').textContent = 'Pick a subject';
     isValid = false;
   }
 
   // Check message
   var message = document.getElementById('message');
   if (message && message.value.trim().length < 20) {
-    document.getElementById('messageError')
-      .textContent = 'Message must be at least 20 characters';
+    document.getElementById('messageError').textContent = 'Message must be at least 20 characters';
     isValid = false;
   }
 
   // Show success
   if (isValid) {
-    document.getElementById('successMessage')
-      .style.display = 'block';
+    document.getElementById('successMessage').style.display = 'block';
     document.getElementById('contactForm').reset();
   }
 }
 
 // ---- WEATHER API ----
-var apiKey = 'YOUR_API_KEY';
+var apiKey = '94eeaed729c50a7434b38fde21f2dcce';
 var airports = [
   { name: 'London Heathrow', lat: 51.47, lon: -0.46 },
   { name: 'JFK New York', lat: 40.64, lon: -73.78 },
@@ -136,8 +131,7 @@ function fetchWeather(airport) {
         + '<p>Temperature: ' + data.main.temp + ' C</p>'
         + '<p>Weather: ' + data.weather[0].main + '</p>'
         + '<p>Wind: ' + data.wind.speed + ' m/s</p>';
-      document.getElementById('api-data')
-        .appendChild(card);
+      document.getElementById('api-data').appendChild(card);
     })
     .catch(function(error) {
       console.log('API error: ' + error);
